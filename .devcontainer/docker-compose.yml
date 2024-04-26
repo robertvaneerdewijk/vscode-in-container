@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  builder:
+    build:
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    image: my_builder
+    ports:
+      - "${DEV_SSH_PORT}:22"
+    networks:
+      - internal_net
+    volumes:
+      - ..:/home/dev_user/workspace:cached
+      - ~/.ssh:/tmp/ssh:ro
+    env_file:
+      - .env
+    security_opt:
+      - seccomp:unconfined
+    cap_add:
+      - SYS_PTRACE
+    tty: true
+    command: sleep infinity
+
+networks:
+  internal_net:
+

@@ -1,0 +1,16 @@
+{
+    "name": "My Development Container",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+              "rust-lang.rust-analyzer"
+            ],
+        }
+    },
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "builder",
+    "runServices": [],
+    "workspaceFolder": "/home/dev_user/workspace",
+    "initializeCommand": "echo 'initializing'",
+    "postCreateCommand": ""
+  }
